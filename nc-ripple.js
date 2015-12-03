@@ -4,6 +4,7 @@ angular.module('nc.ripple', [])
     restrict: 'A',
     link: function(scope, element, attrs) {
       element.css('overflow', 'hidden');
+      element.css('transform', 'translateZ(0)');
       
       var x, y=0, size={},
       offsets,
