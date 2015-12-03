@@ -1,16 +1,33 @@
 <html ng-app='demoapp'>
   <head>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular.min.js'></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js'></script>
     <script src='../nc-ripple.js' ></script>
     <script src='app.js' ></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"  rel='stylesheet' type='text/css'>
+    <link href='demo.css' rel='stylesheet' type='text/css'>
     <link href='../nc-ripple.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
   </head>
   <div ng-controller='demoCtrl'>
-    <div class='btn-group'>
-      <a href='' class='btn' nc-ripple style=''>Button 1</a>  
-      <a href='' class='btn btn-red' nc-ripple style=''>Button 2</a>
-      <a href='' class='btn btn-orange' nc-ripple style=''>Button 3</a>
-      <a href='' class='btn btn-green' nc-ripple style=''>Button 4</a>
+    <div class='col-md-6 btn-group'>
+      <a href='' class='btn-md' nc-ripple style=''>Button 1</a>  
+      <a href='' class='btn-md btn-md-red' nc-ripple style=''>Button 2</a>
+      <a href='' class='btn-md btn-md-orange' nc-ripple style=''>Button 3</a>
+      <a href='' class='btn-md btn-md-green' nc-ripple style=''>Button 4</a>
+    </div>
+    <div class='col-md-6 btn-group'>
+      <div class='col-md-3'>
+        <a href='' class='btn btn-lg btn-success' nc-ripple style='overflow:hidden;display:inline-block;'>Success</a> 
+      </div>
+      <div class='col-md-3'>
+        <a href='' class='btn btn-lg btn-warning' nc-ripple>Warning</a> 
+      </div>
+      <div class='col-md-3'>
+        <a href='' class='btn btn-lg btn-info' nc-ripple>Info</a> 
+      </div>
+      <div class='col-md-3'>
+        <a href='' class='btn btn-lg btn-danger' nc-ripple>Danger</a> 
+      </div>
     </div>
 	</div>
 </html>
