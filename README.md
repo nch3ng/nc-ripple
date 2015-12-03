@@ -1,6 +1,7 @@
 # nc-ripple
 The material design effect ripple in Angular way, can be used on any button. see   
-see:####[Demo] (http://codepen.io/boo0330/pen/dGbKmW)####  
+see:
+####[Demo] (http://codepen.io/boo0330/pen/dGbKmW)
 
 add module in
 ```javascript
