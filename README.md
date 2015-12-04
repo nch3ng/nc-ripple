@@ -15,9 +15,9 @@ use nc-ripple in the button
 
 Options:
 
-**r-opacity**: The transparency of the ripple, valid value >=0 or <=1.  Ex: .7  
-**r-duration**: The duration in secs of the ripple effect.  Ex: 3.5  
-**r-size**: The ripple size in px.  Ex: 600  
+**r-opacity**: The transparency of the ripple, valid value >=0 or <=1.  Default: .7  
+**r-duration**: The duration in secs of the ripple effect.  Default: 1.5  
+**r-size**: The ripple size in px.  Default: 200  
   
 Done.  If you have any issue.  Let me know
 
