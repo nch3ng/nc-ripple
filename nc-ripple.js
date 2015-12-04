@@ -5,9 +5,18 @@ angular.module('nc.ripple', [])
     scope: {
       rOpacity: '@',
       rSize: '@',
-      rDuration: '@'
+      rDuration: '@',
+      rColor: '@'
     },
     link: function(scope, element, attrs) {
+      
+      var COLOR_REGEXP = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$";
+      var cutHex = function(h) {return (h.charAt(0)=="#") ? h.substring(1,7):h}
+      var hexToR = function(h) {return parseInt((cutHex(h)).substring(0,2),16)}
+      var hexToG = function(h) {return parseInt((cutHex(h)).substring(2,4),16)}
+      var hexToB = function(h) {return parseInt((cutHex(h)).substring(4,6),16)}
+      
+      /* Initailizing */
       element.css('overflow', 'hidden');
       element.css('transform', 'translateZ(0)');
       
@@ -22,6 +31,17 @@ angular.module('nc.ripple', [])
         scope.rDuration=1.5;
       
       scope.rDurationS = scope.rDuration +'s';
+      /* End of initializing */
+      var r=220,g=220,b=220;
+      
+      var validates = new RegExp(COLOR_REGEXP);
+      if (scope.rColor && validates.test(scope.rColor)){
+        
+        r=hexToR(scope.rColor);
+        g=hexToG(scope.rColor);
+        b=hexToB(scope.rColor);
+      }
+      
       
       var x, y=0, size={},
       offsets,
@@ -37,12 +57,11 @@ angular.module('nc.ripple', [])
           // Prepend ripple to element
           this.insertBefore(ripple, this.firstChild);
           
-          ripple.style.background = 'rgba(220,220,220,' + scope.rOpacity + ')'
+          ripple.style.background = 'rgba(' + r + ',' + g +',' + b + ',' + scope.rOpacity + ')'
           ripple.style.height=scope.rSize+'px';
           ripple.style.width=scope.rSize+'px';
           size.x = ripple.offsetWidth;
           size.y = ripple.offsetHeight;
-          //ripple.style.webkitTransitionDuration="1s";
         }
 
         var eventType = e.type;
@@ -76,8 +95,6 @@ angular.module('nc.ripple', [])
         innerPos = {};
         innerPos.x = e.pageX;
         innerPos.y = e.pageY;
-        
-        console.log()
 
         ripple.style.left = (innerPos.x - offsets.left - size.x / 2) + 'px';
         ripple.style.top = (innerPos.y - offsets.top - size.y / 2) + 'px';

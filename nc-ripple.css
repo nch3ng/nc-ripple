@@ -16,7 +16,6 @@
   -moz-animation-name: drop;
   -o-animation-name: drop;
   animation-name: drop;
-  /*-webkit-animation-duration:1.5s;*/
   transition-timing-function: ease-out;
 }
 
