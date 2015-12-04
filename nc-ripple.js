@@ -26,8 +26,6 @@ angular.module('nc.ripple', [])
       var x, y=0, size={},
       offsets,
       func = function(e) {
-        
-        console.log(scope.rDurationS);
 
         var ripple = this.querySelector('b.drop');
 
