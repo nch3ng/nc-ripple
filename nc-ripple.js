@@ -2,9 +2,17 @@ angular.module('nc.ripple', [])
 .directive("ncRipple", function() {
   return {
     restrict: 'A',
+    scope: {
+      rTransparency: '@'
+    },
     link: function(scope, element, attrs) {
       element.css('overflow', 'hidden');
       element.css('transform', 'translateZ(0)');
+      
+      if(scope.rTransparency && scope.rTransparency >= 0 && scope.rTransparency <=1)
+        ;  
+      else
+         scope.rTransparency = '.5';
       
       var x, y=0, size={},
       offsets,
@@ -22,6 +30,7 @@ angular.module('nc.ripple', [])
           this.insertBefore(ripple, this.firstChild);
           size.x = ripple.offsetWidth;
           size.y = ripple.offsetHeight;
+          ripple.style.background = 'rgba(220,220,220,' + scope.rTransparency + ')'
         }
 
         var eventType = e.type;
