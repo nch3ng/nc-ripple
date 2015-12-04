@@ -3,7 +3,8 @@ angular.module('nc.ripple', [])
   return {
     restrict: 'A',
     scope: {
-      rTransparency: '@'
+      rTransparency: '@',
+      rSize: '@'
     },
     link: function(scope, element, attrs) {
       element.css('overflow', 'hidden');
@@ -13,6 +14,9 @@ angular.module('nc.ripple', [])
         ;  
       else
          scope.rTransparency = '.5';
+      
+      if(!scope.rSize)
+        scope.rSize = 200;
       
       var x, y=0, size={},
       offsets,
@@ -28,9 +32,14 @@ angular.module('nc.ripple', [])
 
           // Prepend ripple to element
           this.insertBefore(ripple, this.firstChild);
+          
+          ripple.style.background = 'rgba(220,220,220,' + scope.rTransparency + ')'
+          ripple.style.height=scope.rSize+'px';
+          ripple.style.width=scope.rSize+'px';
+          
           size.x = ripple.offsetWidth;
           size.y = ripple.offsetHeight;
-          ripple.style.background = 'rgba(220,220,220,' + scope.rTransparency + ')'
+          
         }
 
         var eventType = e.type;
@@ -59,6 +68,8 @@ angular.module('nc.ripple', [])
         innerPos = {};
         innerPos.x = e.pageX;
         innerPos.y = e.pageY;
+        
+
         ripple.style.left = (innerPos.x - offsets.left - size.x / 2) + 'px';
         ripple.style.top = (innerPos.y - offsets.top - size.y / 2) + 'px';
 
